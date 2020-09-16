@@ -5,14 +5,16 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
     name: {
         type: String,
-        trim: true,
-        require: "Item name is required.",
+        required: true,
     },
-    status: {
+    owner: {
         type: String,
-        enum: ["Inventory", "Wishlist"],
-        default: "Inventory"
+        required: true,
     },
+    condition: {
+        type: String,
+        required: true,
+    }
 });
 
 const Item = mongoose.model("Item", ItemSchema);
